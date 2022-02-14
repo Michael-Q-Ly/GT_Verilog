@@ -5,7 +5,7 @@ CXX = g++
 OBJS = thruwire.o
 
 LIB_DIR := obj_dir
-S_LIB := $(LIB_DIR)/Vthruwire__ALL.a
+S_LIB := $(LIB_DIR)/Vthruwire__ALL.a $(LIB_DIR)/Vmaskbus__ALL.a
 VERILATOR_DIR := /cygdrive/c/Users/Micha/Downloads/Installations/Embedded_Applications/FPGA/verilator/include
 VERILATED := /cygdrive/c/Users/Micha/Downloads/Installations/Embedded_Applications/FPGA/verilator/include/verilated.cpp
 

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Vthruwire.h"
+#include "Vmaskbus.h"
 #include "verilated.h"
 
 int main( int argc, char **argv ) {
@@ -8,7 +8,7 @@ int main( int argc, char **argv ) {
 	Verilated::commandArgs( argc, argv ) ;
 
 	// Instantiate our design
-	Vthruwire *tb = new Vthruwire ;
+	Vmaskbus *tb = new Vmaskbus;
 
 	// Now run the design through 20 timesteps
 	for ( int k = 0 ; k < 20 ; k++ ) {
