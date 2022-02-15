@@ -1,10 +1,10 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Tue Feb 15 01:51:53 2022
+| Date         : Tue Feb 15 02:00:48 2022
 | Host         : MQLY running 64-bit major release  (build 9200)
-| Command      : report_control_sets -verbose -file tooSlow_control_sets_placed.rpt
-| Design       : tooSlow
+| Command      : report_control_sets -verbose -file dimmer_control_sets_placed.rpt
+| Design       : dimmer
 | Device       : xc7a35t
 ------------------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |     1 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |     0 |
+| Unused register locations in slices containing registers |     4 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -58,7 +58,7 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |            1024 |          270 |
+| No           | No                    | No                     |              28 |            7 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
@@ -73,7 +73,7 @@ Table of Contents
 +------------------+---------------+------------------+------------------+----------------+--------------+
 |   Clock Signal   | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
 +------------------+---------------+------------------+------------------+----------------+--------------+
-|  i_clk_IBUF_BUFG |               |                  |              270 |           1024 |         3.79 |
+|  i_clk_IBUF_BUFG |               |                  |                7 |             28 |         4.00 |
 +------------------+---------------+------------------+------------------+----------------+--------------+
 
 

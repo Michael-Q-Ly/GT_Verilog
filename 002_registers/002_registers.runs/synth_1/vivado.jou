@@ -2,11 +2,11 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Tue Feb 15 01:50:24 2022
-# Process ID: 12460
+# Start of session at: Tue Feb 15 01:59:36 2022
+# Process ID: 27816
 # Current directory: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/synth_1
-# Command line: vivado.exe -log tooSlow.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source tooSlow.tcl
-# Log file: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/synth_1/tooSlow.vds
+# Command line: vivado.exe -log dimmer.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source dimmer.tcl
+# Log file: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/synth_1/dimmer.vds
 # Journal file: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source tooSlow.tcl -notrace
+source dimmer.tcl -notrace
