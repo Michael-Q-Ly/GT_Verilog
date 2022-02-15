@@ -1,84 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1644897711">
-  <File Type="BITSTR-BMM" Name="strobe_bd.bmm"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="strobe_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="strobe_timing_summary_init.rpt"/>
-  <File Type="ROUTE-PWR" Name="strobe_power_routed.rpt"/>
-  <File Type="PA-TCL" Name="strobe.tcl"/>
-  <File Type="OPT-TIMING" Name="strobe_timing_summary_opted.rpt"/>
-  <File Type="OPT-DCP" Name="strobe_opt.dcp"/>
-  <File Type="ROUTE-PWR-SUM" Name="strobe_power_summary_routed.pb"/>
-  <File Type="REPORTS-TCL" Name="strobe_reports.tcl"/>
-  <File Type="OPT-DRC" Name="strobe_drc_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="strobe.hwdef"/>
-  <File Type="PWROPT-DCP" Name="strobe_pwropt.dcp"/>
-  <File Type="PWROPT-DRC" Name="strobe_drc_pwropted.rpt"/>
-  <File Type="PWROPT-TIMING" Name="strobe_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-DCP" Name="strobe_placed.dcp"/>
-  <File Type="PLACE-IO" Name="strobe_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="strobe_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="strobe_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="strobe_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="strobe_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="strobe_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="strobe_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-TIMING" Name="strobe_timing_summary_placed.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="strobe_postplace_pwropt.dcp"/>
-  <File Type="BG-BIN" Name="strobe.bin"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="strobe_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="strobe_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="strobe_drc_physopted.rpt"/>
-  <File Type="BITSTR-MSK" Name="strobe.msk"/>
-  <File Type="PHYSOPT-TIMING" Name="strobe_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="strobe_routed_error.dcp"/>
-  <File Type="ROUTE-DCP" Name="strobe_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="strobe_routed_bb.dcp"/>
-  <File Type="ROUTE-DRC" Name="strobe_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="strobe_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="strobe_drc_routed.rpx"/>
-  <File Type="BITSTR-MMI" Name="strobe.mmi"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="strobe_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="strobe_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="strobe_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-PWR-RPX" Name="strobe_power_routed.rpx"/>
-  <File Type="ROUTE-STATUS" Name="strobe_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="strobe_route_status.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="strobe_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-PB" Name="strobe_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="strobe_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="strobe_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="strobe_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW" Name="strobe_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="strobe_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="strobe_bus_skew_routed.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="strobe_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="strobe_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="strobe_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="strobe_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="strobe_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="strobe_bus_skew_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="strobe_bus_skew_postroute_physopted.pb"/>
-  <File Type="BG-BIT" Name="strobe.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="strobe_bus_skew_postroute_physopted.rpx"/>
-  <File Type="BITSTR-RBT" Name="strobe.rbt"/>
-  <File Type="BITSTR-NKY" Name="strobe.nky"/>
-  <File Type="PDI-FILE" Name="strobe.pdi"/>
-  <File Type="RCFI_FILE" Name="strobe.rcfi"/>
-  <File Type="CFI_FILE" Name="strobe.cfi"/>
-  <File Type="RNPI_FILE" Name="strobe.rnpi"/>
-  <File Type="NPI_FILE" Name="strobe.npi"/>
-  <File Type="RBD_FILE" Name="strobe.rbd"/>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1644904298">
+  <File Type="BITSTR-BMM" Name="fractionalClockDivider_bd.bmm"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="fractionalClockDivider_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="fractionalClockDivider_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR" Name="fractionalClockDivider_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="fractionalClockDivider.tcl"/>
+  <File Type="OPT-TIMING" Name="fractionalClockDivider_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="fractionalClockDivider_opt.dcp"/>
+  <File Type="ROUTE-PWR-SUM" Name="fractionalClockDivider_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="fractionalClockDivider_reports.tcl"/>
+  <File Type="OPT-DRC" Name="fractionalClockDivider_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="fractionalClockDivider.hwdef"/>
+  <File Type="PWROPT-DCP" Name="fractionalClockDivider_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="fractionalClockDivider_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="fractionalClockDivider_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="fractionalClockDivider_placed.dcp"/>
+  <File Type="PLACE-IO" Name="fractionalClockDivider_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="fractionalClockDivider_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="fractionalClockDivider_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="fractionalClockDivider_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="fractionalClockDivider_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="fractionalClockDivider_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="fractionalClockDivider_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="fractionalClockDivider_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="fractionalClockDivider_postplace_pwropt.dcp"/>
+  <File Type="BG-BIN" Name="fractionalClockDivider.bin"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="fractionalClockDivider_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="fractionalClockDivider_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="fractionalClockDivider_drc_physopted.rpt"/>
+  <File Type="BITSTR-MSK" Name="fractionalClockDivider.msk"/>
+  <File Type="PHYSOPT-TIMING" Name="fractionalClockDivider_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="fractionalClockDivider_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="fractionalClockDivider_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="fractionalClockDivider_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="fractionalClockDivider_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="fractionalClockDivider_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="fractionalClockDivider_drc_routed.rpx"/>
+  <File Type="BITSTR-MMI" Name="fractionalClockDivider.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="fractionalClockDivider_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="fractionalClockDivider_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="fractionalClockDivider_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="fractionalClockDivider_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="fractionalClockDivider_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="fractionalClockDivider_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="fractionalClockDivider_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="fractionalClockDivider_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="fractionalClockDivider_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="fractionalClockDivider_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="fractionalClockDivider_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="fractionalClockDivider_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="fractionalClockDivider_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="fractionalClockDivider_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="fractionalClockDivider_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="fractionalClockDivider_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="fractionalClockDivider_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="fractionalClockDivider_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="fractionalClockDivider_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="fractionalClockDivider_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="fractionalClockDivider_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="fractionalClockDivider.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="fractionalClockDivider_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-RBT" Name="fractionalClockDivider.rbt"/>
+  <File Type="BITSTR-NKY" Name="fractionalClockDivider.nky"/>
+  <File Type="PDI-FILE" Name="fractionalClockDivider.pdi"/>
+  <File Type="RCFI_FILE" Name="fractionalClockDivider.rcfi"/>
+  <File Type="CFI_FILE" Name="fractionalClockDivider.cfi"/>
+  <File Type="RNPI_FILE" Name="fractionalClockDivider.rnpi"/>
+  <File Type="NPI_FILE" Name="fractionalClockDivider.npi"/>
+  <File Type="RBD_FILE" Name="fractionalClockDivider.rbd"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="strobe.ltx"/>
-  <File Type="BITSTR-SYSDEF" Name="strobe.sysdef"/>
-  <File Type="BG-BGN" Name="strobe.bgn"/>
-  <File Type="BG-DRC" Name="strobe.drc"/>
-  <File Type="RDI-RDI" Name="strobe.vdi"/>
+  <File Type="BITSTR-LTX" Name="fractionalClockDivider.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="fractionalClockDivider.sysdef"/>
+  <File Type="BG-BGN" Name="fractionalClockDivider.bgn"/>
+  <File Type="BG-DRC" Name="fractionalClockDivider.drc"/>
+  <File Type="RDI-RDI" Name="fractionalClockDivider.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/fractionalClockDivider.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/integerClockDivider.v">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/strobe.v">
       <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -94,7 +110,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="strobe"/>
+      <Option Name="TopModule" Val="fractionalClockDivider"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
