@@ -2,11 +2,11 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Mon Feb 14 23:51:42 2022
-# Process ID: 13224
+# Start of session at: Tue Feb 15 00:49:56 2022
+# Process ID: 23272
 # Current directory: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/synth_1
-# Command line: vivado.exe -log fractionalClockDivider.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fractionalClockDivider.tcl
-# Log file: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/synth_1/fractionalClockDivider.vds
+# Command line: vivado.exe -log stretch.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source stretch.tcl
+# Log file: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/synth_1/stretch.vds
 # Journal file: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source fractionalClockDivider.tcl -notrace
+source stretch.tcl -notrace

@@ -1,14 +1,14 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
-------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Mon Feb 14 23:53:21 2022
+| Date         : Tue Feb 15 00:51:23 2022
 | Host         : MQLY running 64-bit major release  (build 9200)
-| Command      : report_drc -file fractionalClockDivider_drc_routed.rpt -pb fractionalClockDivider_drc_routed.pb -rpx fractionalClockDivider_drc_routed.rpx
-| Design       : fractionalClockDivider
+| Command      : report_drc -file stretch_drc_routed.rpt -pb stretch_drc_routed.pb -rpx stretch_drc_routed.rpx
+| Design       : stretch
 | Device       : xc7a35tcpg236-1
 | Speed File   : -1
 | Design State : Fully Routed
-------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
 
 Report DRC
 
