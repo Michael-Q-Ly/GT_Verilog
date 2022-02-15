@@ -2,11 +2,11 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Tue Feb 15 00:50:38 2022
-# Process ID: 6156
+# Start of session at: Tue Feb 15 01:51:09 2022
+# Process ID: 30560
 # Current directory: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/impl_1
-# Command line: vivado.exe -log stretch.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source stretch.tcl -notrace
-# Log file: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/impl_1/stretch.vdi
+# Command line: vivado.exe -log tooSlow.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source tooSlow.tcl -notrace
+# Log file: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/impl_1/tooSlow.vdi
 # Journal file: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/impl_1\vivado.jou
 #-----------------------------------------------------------
-source stretch.tcl -notrace
+source tooSlow.tcl -notrace

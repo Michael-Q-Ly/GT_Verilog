@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1644907792">
-  <File Type="PA-TCL" Name="stretch.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="stretch_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="stretch_reports.tcl"/>
-  <File Type="RDS-RDS" Name="stretch.vds"/>
-  <File Type="RDS-UTIL" Name="stretch_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="stretch_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="stretch.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="stretch_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="stretch_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1644911420">
+  <File Type="PA-TCL" Name="tooSlow.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="tooSlow_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="tooSlow_reports.tcl"/>
+  <File Type="RDS-RDS" Name="tooSlow.vds"/>
+  <File Type="RDS-UTIL" Name="tooSlow_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="tooSlow_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="tooSlow.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="tooSlow_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="tooSlow_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/tooSlow.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blinky.v">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/stretch.v">
       <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -42,17 +58,9 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/blinky.v">
-      <FileInfo>
-        <Attr Name="UserDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="stretch"/>
+      <Option Name="TopModule" Val="tooSlow"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
