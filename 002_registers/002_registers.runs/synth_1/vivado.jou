@@ -2,11 +2,11 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Mon Feb 14 18:27:15 2022
-# Process ID: 22240
+# Start of session at: Mon Feb 14 22:01:55 2022
+# Process ID: 13348
 # Current directory: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/synth_1
-# Command line: vivado.exe -log blinky.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source blinky.tcl
-# Log file: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/synth_1/blinky.vds
+# Command line: vivado.exe -log strobe.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source strobe.tcl
+# Log file: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/synth_1/strobe.vds
 # Journal file: C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source blinky.tcl -notrace
+source strobe.tcl -notrace

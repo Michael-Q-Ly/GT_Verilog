@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/impl_1/blinky.tcl"
+  variable script "C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/impl_1/strobe.tcl"
   variable category "vivado_impl"
 }
 
@@ -123,6 +123,7 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 1
+  set_param xicom.use_bs_reader 1
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tcpg236-1
   set_property board_part_repo_paths {C:/Users/Micha/AppData/Roaming/Xilinx/Vivado/2020.2/xhub/board_store/xilinx_board_store} [current_project]
@@ -137,13 +138,13 @@ OPTRACE "set parameters" START { }
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/synth_1/blinky.dcp
+  add_files -quiet C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.runs/synth_1/strobe.dcp
 OPTRACE "read constraints: implementation" START { }
   read_xdc C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/002_registers/002_registers.srcs/constrs_1/imports/Xilinx/Basys_3_Master.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
-  link_design -top blinky -part xc7a35tcpg236-1
+  link_design -top strobe -part xc7a35tcpg236-1
 OPTRACE "link_design" END { }
 OPTRACE "gray box cells" START { }
 OPTRACE "gray box cells" END { }
@@ -175,10 +176,10 @@ OPTRACE "opt_design" END { }
 OPTRACE "read constraints: opt_design_post" START { }
 OPTRACE "read constraints: opt_design_post" END { }
 OPTRACE "Opt Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force blinky_opt.dcp
+  write_checkpoint -force strobe_opt.dcp
 OPTRACE "Opt Design: write_checkpoint" END { }
 OPTRACE "opt_design reports" START { REPORT }
-  create_report "impl_1_opt_report_drc_0" "report_drc -file blinky_drc_opted.rpt -pb blinky_drc_opted.pb -rpx blinky_drc_opted.rpx"
+  create_report "impl_1_opt_report_drc_0" "report_drc -file strobe_drc_opted.rpt -pb strobe_drc_opted.pb -rpx strobe_drc_opted.rpx"
 OPTRACE "opt_design reports" END { }
   close_msg_db -file opt_design.pb
 } RESULT]
@@ -209,12 +210,12 @@ OPTRACE "place_design" END { }
 OPTRACE "read constraints: place_design_post" START { }
 OPTRACE "read constraints: place_design_post" END { }
 OPTRACE "Place Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force blinky_placed.dcp
+  write_checkpoint -force strobe_placed.dcp
 OPTRACE "Place Design: write_checkpoint" END { }
 OPTRACE "place_design reports" START { REPORT }
-  create_report "impl_1_place_report_io_0" "report_io -file blinky_io_placed.rpt"
-  create_report "impl_1_place_report_utilization_0" "report_utilization -file blinky_utilization_placed.rpt -pb blinky_utilization_placed.pb"
-  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file blinky_control_sets_placed.rpt"
+  create_report "impl_1_place_report_io_0" "report_io -file strobe_io_placed.rpt"
+  create_report "impl_1_place_report_utilization_0" "report_utilization -file strobe_utilization_placed.rpt -pb strobe_utilization_placed.pb"
+  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file strobe_control_sets_placed.rpt"
 OPTRACE "place_design reports" END { }
   close_msg_db -file place_design.pb
 } RESULT]
@@ -240,7 +241,7 @@ OPTRACE "phys_opt_design" END { }
 OPTRACE "read constraints: phys_opt_design_post" START { }
 OPTRACE "read constraints: phys_opt_design_post" END { }
 OPTRACE "Post-Place Phys Opt Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force blinky_physopt.dcp
+  write_checkpoint -force strobe_physopt.dcp
 OPTRACE "Post-Place Phys Opt Design: write_checkpoint" END { }
 OPTRACE "phys_opt_design report" START { REPORT }
 OPTRACE "phys_opt_design report" END { }
@@ -268,17 +269,17 @@ OPTRACE "route_design" END { }
 OPTRACE "read constraints: route_design_post" START { }
 OPTRACE "read constraints: route_design_post" END { }
 OPTRACE "Route Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force blinky_routed.dcp
+  write_checkpoint -force strobe_routed.dcp
 OPTRACE "Route Design: write_checkpoint" END { }
 OPTRACE "route_design reports" START { REPORT }
-  create_report "impl_1_route_report_drc_0" "report_drc -file blinky_drc_routed.rpt -pb blinky_drc_routed.pb -rpx blinky_drc_routed.rpx"
-  create_report "impl_1_route_report_methodology_0" "report_methodology -file blinky_methodology_drc_routed.rpt -pb blinky_methodology_drc_routed.pb -rpx blinky_methodology_drc_routed.rpx"
-  create_report "impl_1_route_report_power_0" "report_power -file blinky_power_routed.rpt -pb blinky_power_summary_routed.pb -rpx blinky_power_routed.rpx"
-  create_report "impl_1_route_report_route_status_0" "report_route_status -file blinky_route_status.rpt -pb blinky_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file blinky_timing_summary_routed.rpt -pb blinky_timing_summary_routed.pb -rpx blinky_timing_summary_routed.rpx -warn_on_violation "
-  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file blinky_incremental_reuse_routed.rpt"
-  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file blinky_clock_utilization_routed.rpt"
-  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file blinky_bus_skew_routed.rpt -pb blinky_bus_skew_routed.pb -rpx blinky_bus_skew_routed.rpx"
+  create_report "impl_1_route_report_drc_0" "report_drc -file strobe_drc_routed.rpt -pb strobe_drc_routed.pb -rpx strobe_drc_routed.rpx"
+  create_report "impl_1_route_report_methodology_0" "report_methodology -file strobe_methodology_drc_routed.rpt -pb strobe_methodology_drc_routed.pb -rpx strobe_methodology_drc_routed.rpx"
+  create_report "impl_1_route_report_power_0" "report_power -file strobe_power_routed.rpt -pb strobe_power_summary_routed.pb -rpx strobe_power_routed.rpx"
+  create_report "impl_1_route_report_route_status_0" "report_route_status -file strobe_route_status.rpt -pb strobe_route_status.pb"
+  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file strobe_timing_summary_routed.rpt -pb strobe_timing_summary_routed.pb -rpx strobe_timing_summary_routed.rpx -warn_on_violation "
+  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file strobe_incremental_reuse_routed.rpt"
+  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file strobe_clock_utilization_routed.rpt"
+  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file strobe_bus_skew_routed.rpt -pb strobe_bus_skew_routed.pb -rpx strobe_bus_skew_routed.rpx"
 OPTRACE "route_design reports" END { }
 OPTRACE "route_design misc" START { }
   close_msg_db -file route_design.pb
@@ -286,7 +287,7 @@ OPTRACE "route_design write_checkpoint" START { CHECKPOINT }
 OPTRACE "route_design write_checkpoint" END { }
 } RESULT]
 if {$rc} {
-  write_checkpoint -force blinky_routed_error.dcp
+  write_checkpoint -force strobe_routed_error.dcp
   step_failed route_design
   return -code error $RESULT
 } else {
@@ -304,16 +305,16 @@ set rc [catch {
   create_msg_db write_bitstream.pb
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }
-  catch { write_mem_info -force -no_partial_mmi blinky.mmi }
+  catch { write_mem_info -force -no_partial_mmi strobe.mmi }
 OPTRACE "write_bitstream setup" END { }
 OPTRACE "write_bitstream" START { }
-  write_bitstream -force blinky.bit 
+  write_bitstream -force strobe.bit 
 OPTRACE "write_bitstream" END { }
 OPTRACE "write_bitstream misc" START { }
 OPTRACE "read constraints: write_bitstream_post" START { }
 OPTRACE "read constraints: write_bitstream_post" END { }
-  catch {write_debug_probes -quiet -force blinky}
-  catch {file copy -force blinky.ltx debug_nets.ltx}
+  catch {write_debug_probes -quiet -force strobe}
+  catch {file copy -force strobe.ltx debug_nets.ltx}
   close_msg_db -file write_bitstream.pb
 } RESULT]
 if {$rc} {

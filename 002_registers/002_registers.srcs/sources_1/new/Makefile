@@ -21,8 +21,7 @@ CXXFLAGS = -I$(VINC) -I$(INCDIR)
 # Ideally, we'd want -GWIDTH=12
 # We can have an `ifdef inside blinky.v
 obj_dir/Vblinky.cpp: blinky.v
-	$(VERILATOR) -Wall -cc blinky.v
-	# $(VERILATOR) --trace -Wall -cc blinky.v
+	$(VERILATOR) --trace -Wall -cc blinky.v
 
 $(S_LIB): obj_dir/Vblinky.cpp
 	make --no-print-directory -C obj_dir -f Vblinky.mk
@@ -30,6 +29,7 @@ $(S_LIB): obj_dir/Vblinky.cpp
 blinky: blinky.cpp $(S_LIB)
 	$(CXX) -I$(VINC) -I$(INCDIR)		\
 		$(VINC)/verilated.cpp       	\
+		$(VINC)/verilated_vcd_c.cpp		\
 		blinky.cpp $(S_LIB)		\
 		-o $(PROG1)
 
