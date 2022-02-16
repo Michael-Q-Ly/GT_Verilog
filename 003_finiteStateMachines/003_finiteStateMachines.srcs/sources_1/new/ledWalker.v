@@ -23,6 +23,7 @@
 `default_nettype	none
 
 module ledWalker( i_clk, o_led ) ;
+	parameter CLK_RATE_HZ = 100_000_000 ;
 	input wire i_clk ;
 //	input wire i_btnC ;
 	output reg [7:0] o_led ;
@@ -76,16 +77,40 @@ module ledWalker( i_clk, o_led ) ;
 //////////////////////////////////////////////////////////////////////////
 
 // inputs and outputs are already declared
-
+	reg [26:0] wait_counter ;
 	reg [3:0] led_index ;
-	initial led_index = 0 ;
+	reg stb ;
+
+	initial { stb, wait_counter } = 0 ;
 	always @( posedge i_clk ) begin
-		if ( led_index > 4'd13 ) begin
-			led_index <= 0 ;					// Reload counter
+		if ( !wait_counter ) begin
+			wait_counter <= CLK_RATE_HZ - 1 ;
 		end
 		else begin
-			led_index <= led_index + 1'b1 ;
+			wait_counter <= wait_counter - 1'b1 ;
 		end
+	end /* wait_counter */
+
+	always @( posedge i_clk ) begin
+		stb <= 1'b0 ;
+		if ( !wait_counter ) begin
+			stb <= 1'b1 ;
+		end
+	end /* stb */
+	
+	initial led_index = 0 ;
+	always @( posedge i_clk ) begin
+		if ( stb ) begin
+			// The logic inside is just what it was before, only
+			// the if(stb) changed.
+			if ( led_index > 4'd13 ) begin
+				led_index <= 0 ;					// Reload counter
+			end
+			else begin
+				led_index <= led_index + 1'b1 ;
+			end
+		end // else nothing changes
+		// Wait for stb to be true before changing state
 	end /* led_counter */
 
 	always @( posedge i_clk ) begin
