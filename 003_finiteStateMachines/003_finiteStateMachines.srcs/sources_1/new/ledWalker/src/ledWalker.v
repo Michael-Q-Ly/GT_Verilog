@@ -142,7 +142,6 @@ module ledWalker( i_clk, o_led ) ;
 //				Formal Verification				//
 //////////////////////////////////////////////////////////////////////////////////
 `ifdef FORMAL
-
 	reg [3:0] led_state ;
 	initial led_state = 0 ;
 	always @( * ) begin
@@ -178,11 +177,6 @@ module ledWalker( i_clk, o_led ) ;
 	// Check the strobe enable
 	always @( posedge i_clk ) begin
 		assert ( stb == ( wait_counter == 0 ) ) ;
-	end
-	
-	// Quick cover property
-	always @( * ) begin
-		cover( ( led_index = 0 ) && ( o_led == 4'h2 ) ) ;
 	end
 `endif
 endmodule
