@@ -52,6 +52,7 @@ module ledWalker( i_clk, o_led ) ;
 		// o_led <= { i_btnC, o_led[7:1] } ;				// MSB to LSB
 `endif /* shiftRegister */
 
+`ifdef strobe
 	/**
 	* We can create an LED display by mixing the shfit register with
 	* a counter to slow it down
@@ -60,9 +61,9 @@ module ledWalker( i_clk, o_led ) ;
 	reg stb ;								// Strobe signal
 	initial { stb, counter } = 0 ;
 	always @( posedge i_clk ) begin
-		{ stb, counter } = counter + 1'b1 ;
+		{ stb, counter } <= counter + 1'b1 ;
 	end
-`ifdef strobe
+
 	initial o_led = 8'h1 ;
 	always @( posedge i_clk ) begin
 		if ( stb ) begin
