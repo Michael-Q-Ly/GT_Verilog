@@ -113,7 +113,7 @@ module ledWalker( i_clk, o_led ) ;
 		// Wait for stb to be true before changing state
 	end /* led_counter */
 
-	initial o_led = 1 ;
+	initial o_led = 8'h01 ;
 	always @( posedge i_clk ) begin
 		case ( led_index )
 			4'h0    : o_led <= 8'h01 ;				// Notice: These are One-Hot-Encoded!

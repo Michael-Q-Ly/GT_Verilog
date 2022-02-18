@@ -3,14 +3,15 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 02/15/2022 01:34:16 PM
+// Create Date: 02/16/2022 03:27:34 AM
 // Design Name: 
 // Module Name: ledWalker
 // Project Name: 
 // Target Devices: Digilent Basys 3
 // Tool Versions:  Vivado 2020.2
 // Description: LED Walker that uses a shift register
-// Uses 8 LEDs, each getting dimmer than the previous one
+// Uses 15 LEDs, each one lighting up one after the other. No LED can be on at
+// the same time, however.
 // 
 // Dependencies: 
 // 
@@ -22,63 +23,20 @@
 
 `default_nettype	none
 
-module ledWalker( i_clk, o_led ) ;
+module ledWalker2( i_clk, o_led ) ;
 	parameter CLK_RATE_HZ = 100_000_000 ;
+	parameter NUM_STATE_BITS = 5 ;
+	parameter NUM_STATES = 2^^NUM_STATE_BITS - 2 ;
+	parameter NUM_LEDS = 16 ;
 	input wire i_clk ;
-//	input wire i_btnC ;
-	output reg [7:0] o_led ;
+	output reg [NUM_LEDS-1:0] o_led ;
 
-`ifdef concatenationOperator
-	// The concatenation operator composes a new bit-vecor from other
-	// pieces. This one shifts o_led's bits  left with wrap!
-	always @( posedge i_clk ) begin
-		o_led <= { o_led[6:0], o_led[7] } ;
-		/**
-		* This is equivalent to the following:
-		* oled[0] <= o_led[7] ;
-		* oled[1] <= o_led[0] ;
-		* oled[2] <= o_led[1] ;
-		* oled[3] <= o_led[2] ;
-		* oled[4] <= o_led[3] ;
-		* oled[5] <= o_led[4] ;
-		* oled[6] <= o_led[5] ;
-		* oled[7] <= o_led[6] ;
-		*/
-	end
-`endif /* concatenationOperator */
-
-`ifdef shiftRegister
-	always @( posedge i_clk ) begin
-		o_led <= o_led[6:0], i_btnC } ;					// LSB to MSB
-		// o_led <= { i_btnC, o_led[7:1] } ;				// MSB to LSB
-`endif /* shiftRegister */
-
-`ifdef strobe
-	/**
-	* We can create an LED display by mixing the shfit register with
-	* a counter to slow it down
-	*/
-	reg [26:0] counter ;
-	reg stb ;								// Strobe signal
-	initial { stb, counter } = 0 ;
-	always @( posedge i_clk ) begin
-		{ stb, counter } <= counter + 1'b1 ;
-	end
-
-	initial o_led = 8'h1 ;
-	always @( posedge i_clk ) begin
-		if ( stb ) begin
-			o_led <= { o_led[6:0], o_led[7] } ;
-		end
-	end
-`endif /* strobe */
 //////////////////////////////////////////////////////////////////////////////////
 //				LED Walker FSM					//
 //////////////////////////////////////////////////////////////////////////////////
 
-// inputs and outputs are already declared
 	reg [26:0] wait_counter ;
-	reg [3:0] led_index ;
+	reg [NUM_STATE_BITS-1:0] led_index ;
 	reg stb ;
 
 	initial { stb, wait_counter } = 0 ;
@@ -103,7 +61,7 @@ module ledWalker( i_clk, o_led ) ;
 		if ( stb ) begin
 			// The logic inside is just what it was before, only
 			// the if(stb) changed.
-			if ( led_index > 4'd12 ) begin
+			if ( led_index > NUM_STATES - 2 )  begin
 				led_index <= 0 ;					// Reload counter
 			end
 			else begin
@@ -116,24 +74,44 @@ module ledWalker( i_clk, o_led ) ;
 	initial o_led = 1 ;
 	always @( posedge i_clk ) begin
 		case ( led_index )
-			4'h0    : o_led <= 8'h01 ;				// Notice: These are One-Hot-Encoded!
-			4'h1    : o_led <= 8'h02 ;
-			4'h2    : o_led <= 8'h04 ;
-			4'h3    : o_led <= 8'h08 ;
+			5'h00	: o_led <= 16'h0001 ;				// Notice: These are One-Hot-Encoded!
+			5'h01	: o_led <= 16'h0002 ;
+			5'h02	: o_led <= 16'h0004 ;
+			5'h03	: o_led <= 16'h0008 ;
 			//
-			4'h4    : o_led <= 8'h10 ;
-			4'h5    : o_led <= 8'h20 ;
-			4'h6    : o_led <= 8'h40 ;
-			4'h7    : o_led <= 8'h80 ;
+			5'h04	: o_led <= 16'h0010 ;
+			5'h05	: o_led <= 16'h0020 ;
+			5'h06	: o_led <= 16'h0040 ;
+			5'h07	: o_led <= 16'h0080 ;
 			//
-			4'h8    : o_led <= 8'h40 ;
-			4'h9    : o_led <= 8'h20 ;
-			4'ha    : o_led <= 8'h10 ;
-			4'hb    : o_led <= 8'h08 ;
+			5'h08	: o_led <= 16'h0100 ;
+			5'h09	: o_led <= 16'h0200 ;
+			5'h0a	: o_led <= 16'h0400 ;
+			5'h0b	: o_led <= 16'h0800 ;
 			//
-			4'hc    : o_led <= 8'h04 ;
-			4'hd    : o_led <= 8'h02 ;
-			default : o_led <= 8'h01 ;
+			5'h0c	: o_led <= 16'h1000 ;
+			5'h0d	: o_led <= 16'h2000 ;
+			5'h0e	: o_led <= 16'h4000 ;
+			5'h0f	: o_led <= 16'h8000 ;
+            //
+			5'h10	: o_led <= 16'h4000 ;
+			5'h11	: o_led <= 16'h2000 ;
+			5'h12	: o_led <= 16'h1000 ;
+			5'h13	: o_led <= 16'h0800 ;
+            //
+			5'h14	: o_led <= 16'h0400 ;
+			5'h15	: o_led <= 16'h0200 ;
+			5'h16	: o_led <= 16'h0100 ;
+			5'h17	: o_led <= 16'h0080 ;
+            //
+			5'h18	: o_led <= 16'h0040 ;
+			5'h19	: o_led <= 16'h0020 ;
+			5'h1a	: o_led <= 16'h0010 ;
+			5'h1b	: o_led <= 16'h0008 ;
+            //
+			5'h1c	: o_led <= 16'h0004 ;
+			5'h1d	: o_led <= 16'h0002 ;
+            default : o_led <= 16'h0001 ;
 		endcase
 	end /* Driver/FSM */
 
@@ -142,10 +120,11 @@ module ledWalker( i_clk, o_led ) ;
 //				Formal Verification				//
 //////////////////////////////////////////////////////////////////////////////////
 `ifdef FORMAL
-	reg [3:0] led_state ;
+
+	reg [NUM_STATE_BITS-1:0] led_state ;
 	initial led_state = 0 ;
 	always @( * ) begin
-		assert( led_state <= 4'd12 ) ;
+		assert( led_state <= NUM_STATES - 2 ) ;
 	end
 
 	// All registers (or wires) used in formal verification will have f_
@@ -156,14 +135,25 @@ module ledWalker( i_clk, o_led ) ;
 	always @( * ) begin
 		f_valid_output = 0 ;						// Provided a default value so we do not create a latch!
 		case ( o_led )
-			8'h01: f_valid_output = 1'b1 ;
-			8'h02: f_valid_output = 1'b1 ;
-			8'h04: f_valid_output = 1'b1 ;
-			8'h08: f_valid_output = 1'b1 ;
-			8'h10: f_valid_output = 1'b1 ;
-			8'h20: f_valid_output = 1'b1 ;
-			8'h40: f_valid_output = 1'b1 ;
-			8'h80: f_valid_output = 1'b1 ;
+			16'h0001    : f_valid_output = 1'b1 ;
+            16'h0002    : f_valid_output = 1'b1 ;
+            16'h0004    : f_valid_output = 1'b1 ;
+            16'h0008    : f_valid_output = 1'b1 ;
+            //
+            16'h0010    : f_valid_output = 1'b1 ;
+            16'h0020    : f_valid_output = 1'b1 ;
+            16'h0040    : f_valid_output = 1'b1 ;
+            16'h0080    : f_valid_output = 1'b1 ;
+            //
+            16'h0100    : f_valid_output = 1'b1 ;
+            16'h0200    : f_valid_output = 1'b1 ;
+            16'h0400    : f_valid_output = 1'b1 ;
+            16'h0800    : f_valid_output = 1'b1 ;
+            //
+            16'h1000    : f_valid_output = 1'b1 ;
+            16'h2000    : f_valid_output = 1'b1 ;
+            16'h4000    : f_valid_output = 1'b1 ;
+            16'h8000    : f_valid_output = 1'b1 ;
 		endcase
 
 		assert( f_valid_output ) ;
@@ -177,6 +167,11 @@ module ledWalker( i_clk, o_led ) ;
 	// Check the strobe enable
 	always @( posedge i_clk ) begin
 		assert ( stb == ( wait_counter == 0 ) ) ;
+	end
+	
+	// Quick cover property
+	always @( * ) begin
+		cover( ( led_index = 0 ) && ( o_led == 4'h2 ) ) ;
 	end
 `endif
 endmodule

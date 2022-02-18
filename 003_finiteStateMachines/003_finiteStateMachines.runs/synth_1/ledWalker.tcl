@@ -88,7 +88,7 @@ set_property ip_output_repo c:/Users/Micha/OneDrive/Documents/Learning/GT_Verilo
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/003_finiteStateMachines/003_finiteStateMachines.srcs/sources_1/new/ledWalker.v
+read_verilog -library xil_defaultlib C:/Users/Micha/OneDrive/Documents/Learning/GT_Verilog/003_finiteStateMachines/003_finiteStateMachines.srcs/sources_1/new/ledWalker2.v
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
